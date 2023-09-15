@@ -278,30 +278,11 @@
                 @endphp
                 @endforeach
             </div>
-            @else
+     
             
             @endif
         </div>
     </section>
 
-    <!--<section class="section-rating">-->
-    <!--    <div class="container">-->
-    <!--        <div class="row justify-content-center" data-aos="zoom-in"-->
-    <!--        data-aos-duration="500">-->
-    <!--            <div class="col-lg-6 col-md-6 ml-10 px-4" >-->
-    <!--                <div class="card card-rating">-->
-    <!--                    <img src="{{ url('/frontend/images/family.jpg')}}" alt="">-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            <div class="col-lg-6 col-md-6 px-4 mt-2" >-->
-    <!--                <div class="review-user">-->
-    <!--                    <h2>Happy Family</h2>-->
-    <!--                    <h3>A Great place to my family....</h3>-->
-    <!--                    <a href="{{ route('browse')}}" class="btn btn-primary btn-browse mt-2">Browse Your House</a>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</section>-->
 </main>
 @endsection

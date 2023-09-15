@@ -35,15 +35,11 @@ Route::get('/category/{cities}', 'HomeController@cities')
 Route::get('/contact-us', 'HomeController@contact')
     ->name('contact');
 
-Route::prefix('admin')
-    ->namespace('Admin')
-    ->middleware('auth', 'admin')
-    ->group(function (){
-        Route::get('/', 'DashboardController@index')
-            ->name('dashboard');
-        Route::resource('house-package', 'HousePackageController');
-        Route::resource('gallery', 'GalleryController');
-    });
+Route::prefix('admin')->namespace('Admin')->middleware('auth', 'admin')->group(function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::resource('house-package', 'HousePackageController');
+    Route::resource('gallery', 'GalleryController');
+});
 
 Auth::routes([
     'register' => false,

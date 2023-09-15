@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\HousePackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -20,7 +21,7 @@ class GalleryController extends Controller
     {
         $items = Gallery::with(['house_package'])->paginate(10);
 
-        return view ('pages.admin.gallery.index', [
+        return view('pages.admin.gallery.index', [
             'items' => $items
         ]);
     }
@@ -33,7 +34,7 @@ class GalleryController extends Controller
     public function create()
     {
         $house_packages = HousePackage::all();
-        return view ('pages.admin.gallery.create', [
+        return view('pages.admin.gallery.create', [
             'house_packages' => $house_packages
         ]);
     }
@@ -47,10 +48,7 @@ class GalleryController extends Controller
     public function store(GalleryRequest $request)
     {
         $data = $request->all();
-        $data['image'] = $request->file('image')->store(
-            'assets/gallery',
-            'public'
-        );
+        $data['image'] = $request->file('image')->store('assets/gallery', 'public');
 
         Gallery::create($data);
         return redirect()->route('gallery.index');
@@ -94,10 +92,7 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $data['image'] = $request->file('image')->store(
-            'assets/gallery',
-            'public'
-        );
+        $data['image'] = $request->file('image')->store('assets/gallery', 'public');
 
         $item = Gallery::findOrFail($id);
         $item->update($data);

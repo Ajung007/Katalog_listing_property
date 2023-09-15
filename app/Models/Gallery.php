@@ -13,12 +13,14 @@ class Gallery extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'house_packages_id', 'image'
+        'house_packages_id',
+        'image'
     ];
 
-    protected $hidden =[];
+    protected $hidden = [];
 
-    public function house_package(){
+    public function house_package()
+    {
         return $this->belongsTo(HousePackage::class, 'house_packages_id', 'id');
     }
 }
