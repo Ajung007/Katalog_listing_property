@@ -29,11 +29,8 @@
                         <a href="{{ route('cities', 'Magelang')}}" class="dropdown-item">Magelang</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Promo Mandiri KPR</a>
-                    <div class="dropdown-menu">
-                        <a href="" class="dropdown-item">Benefit PPN</a>
-                    </div>
+                <li class="nav-item mx-md-2">
+                    <a href="{{ route('promo') }}" class="nav-link">Promo</a>
                 </li>
                 <li class="nav-item mx-md-2">
                     <a href="{{ route('contact') }}" class="nav-link">Contact Us</a>

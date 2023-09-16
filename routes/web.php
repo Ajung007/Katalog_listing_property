@@ -17,23 +17,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', 'HomeController@index')
-    ->name('home');
-
-Route::get('/detail/{slug}', 'DetailController@index')
-    ->name('detail');
-
-Route::get('/browse', 'HomeController@browse')
-    ->name('browse');
-
-Route::get('/browse/search', 'HomeController@search')
-    ->name('search');
-
-Route::get('/category/{cities}', 'HomeController@cities')
-    ->name('cities');
-
-Route::get('/contact-us', 'HomeController@contact')
-    ->name('contact');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/detail/{slug}', 'DetailController@index')->name('detail');
+Route::get('/browse', 'HomeController@browse')->name('browse');
+Route::get('/browse/search', 'HomeController@search')->name('search');
+Route::get('/category/{cities}', 'HomeController@cities')->name('cities');
+Route::get('/contact-us', 'HomeController@contact')->name('contact');
+Route::get('/promo', 'HomeController@promo')->name('promo');
 
 Route::prefix('admin')->namespace('Admin')->middleware('auth', 'admin')->group(function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');

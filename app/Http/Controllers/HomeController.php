@@ -64,4 +64,9 @@ class HomeController extends Controller
     {
         return view('pages.contact');
     }
+
+    public function promo(Request $request)
+    {
+        return view('pages.promo');
+    }
 }
