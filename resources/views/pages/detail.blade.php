@@ -34,18 +34,20 @@
                 <div class="col-lg-8 col-md-8 pl-lg-0">
                     <div class="card-left">
                         @if ($item->galleries->count())
+
                         <div class="gallery">
                             <div class="xzoom-container">
-                                <img src="{{ Storage::url($item->galleries->first()->image)}}" alt="" class="xzoom" id="xzoom-default" xoriginal="{{ Storage::url($item->galleries->first()->image)}}">
+                                <img src="{{ $item->galleries->exists() ? Storage::url($item->galleries->first()->image) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='}}" alt="" class="xzoom" id="xzoom-default" xoriginal="{{ $item->galleries->exists() ? Storage::url($item->galleries->first()->image) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='}}">
                             </div>
                             <div class="xzoom-thumbs">
                                 @foreach ($item->galleries as $gallery)
-                                <a href="{{Storage::url($gallery->image)}}">
-                                    <img src="{{Storage::url($gallery->image)}}" alt="" class="xzoom-gallery" width="128" xpreview="{{Storage::url($gallery->image)}}">
+                                <a href="{{ $gallery->galleries->exists() ? Storage::url($gallery->image) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='}}">
+                                    <img src="{{ $gallery->galleries->exists() ? Storage::url($gallery->image) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='}}" alt="" class="xzoom-gallery" width="128" xpreview="{{Storage::url($gallery->image)}}">
                                 </a>
                                 @endforeach
                             </div>
                         </div>
+
                         @endif
                         <h2>Deskripsi</h2>
                         <p>{!! $item->about !!}</p>
