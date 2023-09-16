@@ -19,8 +19,8 @@ class HousePackageController extends Controller
     public function index()
     {
         $items = HousePackage::paginate(5);
-        return view('pages.admin.house-package.index',[
-           'items' => $items 
+        return view('pages.admin.house-package.index', [
+            'items' => $items,
         ]);
     }
 
@@ -70,7 +70,7 @@ class HousePackageController extends Controller
     {
         $item = HousePackage::findOrFail($id);
 
-        return view('pages.admin.house-package.edit',[
+        return view('pages.admin.house-package.edit', [
             'item' => $item
         ]);
     }
